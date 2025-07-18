@@ -46,9 +46,19 @@ Frontend: Accessible, visually appealing, and fully responsive
 
 Next Steps
 Add Docker support or cloud deployment options.
-
 Integrate a database for logging and analytics.
 
 Expand user feedback/interpretability (e.g., feature importance display).
 
 Polish the frontend further or add authentication.
+
+
+## Screenshots
+
+
+<img width="1919" height="949" alt="image" src="https://github.com/user-attachments/assets/dc0e926b-da91-481a-ad25-4f5a89efdc02" />
+
+<img width="1896" height="947" alt="image" src="https://github.com/user-attachments/assets/81727396-06d4-48d8-a560-b235875b663e" />
+
+
+
