@@ -1,0 +1,414 @@
+:root {
+    /* Light mode colors */
+    --background: hsl(0, 0%, 100%);
+    --foreground: hsl(224, 71%, 4%);
+    --card: hsl(0, 0%, 100%);
+    --card-foreground: hsl(224, 71%, 4%);
+    --primary: hsl(221, 83%, 53%);
+    --primary-foreground: hsl(210, 40%, 98%);
+    --secondary: hsl(210, 40%, 96%);
+    --secondary-foreground: hsl(222, 84%, 5%);
+    --muted: hsl(210, 40%, 96%);
+    --muted-foreground: hsl(215, 16%, 47%);
+    --border: hsl(214, 32%, 91%);
+    --input: hsl(214, 32%, 91%);
+    --ring: hsl(221, 83%, 53%);
+    --destructive: hsl(0, 84%, 60%);
+    --destructive-foreground: hsl(210, 40%, 98%);
+    --success: hsl(142, 71%, 45%);
+    --success-foreground: hsl(355, 100%, 97%);
+    --professional-light: hsl(210, 40%, 98%);
+    --professional-medium: hsl(214, 32%, 91%);
+    --professional-dark: hsl(221, 83%, 53%);
+    
+    /* Font settings */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --radius: 0.5rem;
+}
+
+.dark {
+    /* Dark mode colors */
+    --background: hsl(224, 71%, 4%);
+    --foreground: hsl(210, 20%, 98%);
+    --card: hsl(224, 71%, 8%);
+    --card-foreground: hsl(210, 20%, 98%);
+    --primary: hsl(217, 91%, 60%);
+    --primary-foreground: hsl(224, 71%, 4%);
+    --secondary: hsl(215, 28%, 17%);
+    --secondary-foreground: hsl(210, 20%, 98%);
+    --muted: hsl(215, 28%, 17%);
+    --muted-foreground: hsl(217, 11%, 65%);
+    --border: hsl(215, 28%, 17%);
+    --input: hsl(215, 28%, 17%);
+    --ring: hsl(217, 91%, 60%);
+    --destructive: hsl(0, 63%, 31%);
+    --destructive-foreground: hsl(210, 20%, 98%);
+    --success: hsl(142, 71%, 45%);
+    --success-foreground: hsl(210, 20%, 98%);
+    --professional-light: hsl(215, 28%, 17%);
+    --professional-medium: hsl(215, 28%, 25%);
+    --professional-dark: hsl(217, 91%, 60%);
+}
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background);
+    color: var(--foreground);
+    line-height: 1.6;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styles */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    color: var(--primary);
+}
+
+.header-icon svg {
+    width: 3rem;
+    height: 3rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin: 0;
+}
+
+.header-subtitle {
+    font-size: 1.125rem;
+    color: var(--muted-foreground);
+    margin: 0;
+}
+
+/* Form card styles */
+.form-card {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    margin-bottom: 3rem;
+    flex: 1;
+}
+
+.card-header {
+    background-color: var(--professional-light);
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.card-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--card-foreground);
+    margin-bottom: 0.5rem;
+}
+
+.card-description {
+    color: var(--muted-foreground);
+    margin: 0;
+}
+
+.card-content {
+    padding: 2rem;
+}
+
+/* Form styles */
+.credit-form {
+    margin-bottom: 2rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--foreground);
+    font-size: 0.875rem;
+}
+
+.form-input,
+.form-select {
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) - 2px);
+    background-color: var(--input);
+    color: var(--foreground);
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.form-input:focus,
+.form-select:focus {
+    border-color: var(--ring);
+    box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-input::placeholder {
+    color: var(--muted-foreground);
+}
+
+.form-select {
+    cursor: pointer;
+}
+
+.form-input.error,
+.form-select.error {
+    border-color: var(--destructive);
+}
+
+.error-message {
+    color: var(--destructive);
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    min-height: 1rem;
+}
+
+/* Submit button styles */
+.form-submit {
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+}
+
+.submit-button {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 200px;
+    justify-content: center;
+}
+
+.submit-button:hover:not(:disabled) {
+    background-color: hsl(217, 91%, 55%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.loading-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Prediction result styles */
+.prediction-result {
+    margin-top: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.prediction-result.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.alert {
+    padding: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid;
+}
+
+.alert.success {
+    background-color: hsl(142, 71%, 45%, 0.1);
+    border-color: var(--success);
+    color: var(--success-foreground);
+}
+
+.alert.error {
+    background-color: hsl(0, 84%, 60%, 0.1);
+    border-color: var(--destructive);
+    color: var(--destructive-foreground);
+}
+
+.alert-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.alert-icon {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.alert-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.alert-message {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Footer styles */
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    color: var(--muted-foreground);
+    margin-top: auto;
+}
+
+/* Utility classes */
+.hidden {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .card-content,
+    .card-header {
+        padding: 1.5rem;
+    }
+    
+    .submit-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .card-content,
+    .card-header {
+        padding: 1rem;
+    }
+    
+    .form-grid {
+        gap: 0.75rem;
+    }
+}
+
+/* Focus styles for accessibility */
+.form-input:focus-visible,
+.form-select:focus-visible,
+.submit-button:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+}
+
+/* Animation for form appearance */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.header {
+    animation: fadeInUp 0.4s ease-out;
+}
