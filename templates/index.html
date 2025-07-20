@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Approval Prediction</title>
+    <meta name="description" content="Credit Card Approval Prediction System">
+    <meta name="author" content="Credit Approval Predictor">
+    
+    <!-- Professional styling -->
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-icon">
+                    <i data-lucide="credit-card"></i>
+                </div>
+                <h1>Credit Card Approval Prediction</h1>
+            </div>
+            <p class="header-subtitle">
+                Get an instant prediction for your credit card application
+            </p>
+        </header>
+
+        <!-- Main Form Card -->
+        <div class="form-card">
+            <div class="card-header">
+                <h2>Application Form</h2>
+                <p class="card-description">
+                    Please fill out all fields accurately for the best prediction
+                </p>
+            </div>
+            
+            <div class="card-content">
+                <form id="creditForm" class="credit-form">
+                    <div class="form-grid">
+                        <!-- Gender -->
+                        <div class="form-group">
+                            <label for="gender" class="form-label">Gender *</label>
+                            <select id="gender" name="gender" class="form-select" required>
+                                <option value="">Select your gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other/Prefer not to say</option>
+                            </select>
+                            <div class="error-message" id="gender-error"></div>
+                        </div>
+
+                        <!-- Age -->
+                        <div class="form-group">
+                            <label for="age" class="form-label">Age *</label>
+                            <input type="number" id="age" name="age" class="form-input" 
+                                   placeholder="Enter your age" min="18" max="100" required>
+                            <div class="error-message" id="age-error"></div>
+                        </div>
+
+                        <!-- Marital Status -->
+                        <div class="form-group">
+                            <label for="maritalStatus" class="form-label">Marital Status *</label>
+                            <select id="maritalStatus" name="maritalStatus" class="form-select" required>
+                                <option value="">Select marital status</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="error-message" id="maritalStatus-error"></div>
+                        </div>
+
+                        <!-- Bank Customer -->
+                        <div class="form-group">
+                            <label for="bankCustomer" class="form-label">Bank Customer *</label>
+                            <select id="bankCustomer" name="bankCustomer" class="form-select" required>
+                                <option value="">Are you a bank customer?</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                            <div class="error-message" id="bankCustomer-error"></div>
+                        </div>
+
+                        <!-- Years Employed -->
+                        <div class="form-group">
+                            <label for="yearsEmployed" class="form-label">Years Employed *</label>
+                            <input type="number" id="yearsEmployed" name="yearsEmployed" class="form-input" 
+                                   placeholder="Years of employment (e.g., 2.5)" step="0.1" min="0" required>
+                            <div class="error-message" id="yearsEmployed-error"></div>
+                        </div>
+
+                        <!-- Prior Default -->
+                        <div class="form-group">
+                            <label for="priorDefault" class="form-label">Prior Default *</label>
+                            <select id="priorDefault" name="priorDefault" class="form-select" required>
+                                <option value="">Any prior defaults?</option>
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                            <div class="error-message" id="priorDefault-error"></div>
+                        </div>
+
+                        <!-- Currently Employed -->
+                        <div class="form-group">
+                            <label for="currentlyEmployed" class="form-label">Currently Employed *</label>
+                            <select id="currentlyEmployed" name="currentlyEmployed" class="form-select" required>
+                                <option value="">Currently employed?</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                            <div class="error-message" id="currentlyEmployed-error"></div>
+                        </div>
+
+                        <!-- Credit Score -->
+                        <div class="form-group">
+                            <label for="creditScore" class="form-label">Credit Score *</label>
+                            <input type="number" id="creditScore" name="creditScore" class="form-input" 
+                                   placeholder="Enter credit score (300-850)" min="300" max="850" required>
+                            <div class="error-message" id="creditScore-error"></div>
+                        </div>
+
+                        <!-- Driver's License -->
+                        <div class="form-group">
+                            <label for="driversLicense" class="form-label">Driver's License *</label>
+                            <select id="driversLicense" name="driversLicense" class="form-select" required>
+                                <option value="">Have a driver's license?</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                            <div class="error-message" id="driversLicense-error"></div>
+                        </div>
+
+                        <!-- Zip Code -->
+                        <div class="form-group">
+                            <label for="zipCode" class="form-label">Zip Code *</label>
+                            <input type="text" id="zipCode" name="zipCode" class="form-input" 
+                                   placeholder="Enter zip code (e.g., 12345)" required>
+                            <div class="error-message" id="zipCode-error"></div>
+                        </div>
+
+                        <!-- Income -->
+                        <div class="form-group">
+                            <label for="income" class="form-label">Annual Income *</label>
+                            <input type="number" id="income" name="income" class="form-input" 
+                                   placeholder="Enter annual income ($)" min="0" required>
+                            <div class="error-message" id="income-error"></div>
+                        </div>
+
+                        <!-- Industry -->
+                        <div class="form-group">
+                            <label for="industry" class="form-label">Industry *</label>
+                            <select id="industry" name="industry" class="form-select" required>
+                                <option value="">Select your industry</option>
+                                <option value="IT">Information Technology</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Education">Education</option>
+                                <option value="Manufacturing">Manufacturing</option>
+                                <option value="Retail">Retail</option>
+                                <option value="Government">Government</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="error-message" id="industry-error"></div>
+                        </div>
+
+                        <!-- Ethnicity -->
+                        <div class="form-group">
+                            <label for="ethnicity" class="form-label">Ethnicity *</label>
+                            <select id="ethnicity" name="ethnicity" class="form-select" required>
+                                <option value="">Select ethnicity</option>
+                                <option value="Asian">Asian</option>
+                                <option value="White">White</option>
+                                <option value="Black">Black</option>
+                                <option value="Hispanic">Hispanic</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="error-message" id="ethnicity-error"></div>
+                        </div>
+
+                        <!-- Citizenship Status -->
+                        <div class="form-group">
+                            <label for="citizenshipStatus" class="form-label">Citizenship Status *</label>
+                            <select id="citizenshipStatus" name="citizenshipStatus" class="form-select" required>
+                                <option value="">Select citizenship status</option>
+                                <option value="Citizen">Citizen</option>
+                                <option value="Permanent Resident">Permanent Resident</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="error-message" id="citizenshipStatus-error"></div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-submit">
+                        <button type="submit" id="submitBtn" class="submit-button">
+                            <span id="submitText">Check Approval</span>
+                            <div id="loadingSpinner" class="loading-spinner hidden">
+                                <div class="spinner"></div>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Prediction Result -->
+                <div id="predictionResult" class="prediction-result hidden">
+                    <div class="alert" id="alertBox">
+                        <div class="alert-content">
+                            <div class="alert-icon" id="alertIcon"></div>
+                            <div class="alert-message" id="alertMessage"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Credit Approval Predictor</p>
+        </footer>
+    </div>
+
+    <script src="static/script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
