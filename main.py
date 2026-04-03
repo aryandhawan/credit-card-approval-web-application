@@ -75,7 +75,7 @@ def predict():
 
         # Convert dictionary to DataFrame (1 row)
         df_input = pd.DataFrame([input_data], columns=all_cols)
-        print(df_input)
+
         # Predict
         pred = model.predict(df_input)[0]
 
