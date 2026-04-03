@@ -1,0 +1,5 @@
+outs:
+- md5: f9ef466328183a973ebefdf65af8a96c
+  size: 32218
+  hash: md5
+  path: crx.csv
